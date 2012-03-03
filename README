@@ -1,1 +1,2 @@
-Web Services course 1 task (client for some web service)
+Web Services course 1 task (client for some web service).
+written in ruby, using gtk2, using two webservicex.com web services to get cities by country, and to get weather.
