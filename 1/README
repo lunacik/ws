@@ -1,0 +1,2 @@
+Task 1 - Client for some web service
+written in ruby(savon library) using gtk2 for front end, using two webservicex.com web services to get cities by country, and to get weather.

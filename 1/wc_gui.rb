@@ -58,10 +58,9 @@ class RubyApp < Gtk::Window
         fixed.put @cb2, 30, 53
         
         fixed.put @cb3, 30, 76
-        @weatherLabel = Gtk::Label.new
+        @weatherLabel = Gtk::Label.new "Choose some location"
 
         fixed.put @weatherLabel, 0, 150        
-        @weatherLabel.set_text "Choose some location"
         fixed.put @cloud_image, 50, 350
         fixed.put @sun_image, 50, 350
         fixed.put @cry_image, 50, 350

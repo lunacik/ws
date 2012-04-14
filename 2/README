@@ -1,0 +1,10 @@
+Task 2 - web service and client for it
+    written in ruby(soap4r), 
+    using sqlite3 to store data, 
+    using gtk2 for client front-end
+
+web service - personal movies collection
+    operations:
+        getMovies
+        rateMovie
+        addMovie
