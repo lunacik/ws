@@ -1,0 +1,19 @@
+---
+:mov:
+  2: !ruby/object:Movie
+    name: Parselis
+    year: 2000
+    ratings:
+    - 8
+    - 10
+    rating: 9.0
+  1: !ruby/object:Movie
+    name: Melancholia
+    year: 2011
+    ratings:
+    - 10
+    - 10
+    rating: 10.0
+:fav:
+- 2
+- 1
