@@ -15,8 +15,9 @@ class MoviesCollection
       data = YAML::load_file(@movies_file)
       if data[:mov]
         @movies = data[:mov]
-      end
+      else
         @movies = {} 
+      end
       if data[:fav]
         @favorites = data[:fav]
       else
@@ -49,6 +50,7 @@ class MoviesCollection
   end
 
   def rate_movie(id, rating)
+    raise "Cannot rate nonexistend movie" unless @movies[id]
     @movies[id].rate(rating)
   end
 
@@ -57,6 +59,8 @@ class MoviesCollection
   end
 
   def delete_movie(id)
+    raise "Cannot delete nonexistent movie" unless @movies[id]
+    @favorites.delete(id)
     @movies.delete(id)
   end
 

@@ -1,19 +1,34 @@
 ---
 :mov:
+  4: !ruby/object:Movie
+    name: Mike
+    year: 1980
+    ratings:
+    - 10
+    - 9
+    rating: 9.5
   2: !ruby/object:Movie
-    name: Parselis
-    year: 2000
+    name: City lights
+    year: 1936
     ratings:
-    - 8
-    - 10
-    rating: 9.0
-  1: !ruby/object:Movie
-    name: Melancholia
-    year: 2011
-    ratings:
-    - 10
     - 10
     rating: 10.0
+  3: !ruby/object:Movie
+    name: Grey
+    year: 2011
+    ratings:
+    - 5
+    rating: 5.0
+  5: !ruby/object:Movie
+    name: Tree of Life
+    year: 2011
+    ratings: []
+    rating: n/a
+  1: !ruby/object:Movie
+    name: Rūpužė
+    year: 1950
+    ratings: []
+    rating: n/a
 :fav:
 - 2
-- 1
+- 3

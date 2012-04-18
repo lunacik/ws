@@ -9,7 +9,7 @@ describe Movie do
   end
 
   describe "#new" do
-    it "should take 2 parameters and return 'movie' object" do
+    it "should take 2 parameters and return 'Movie' object" do
       @movie.should be_instance_of Movie
     end
   end

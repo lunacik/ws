@@ -46,7 +46,7 @@ end
 
 
 server = MoviesCollectionWS.new("MoviesCollectionWS", "", "localhost", "27015", "movies.yml")
-server.wsdl("moviesCollection.wsdl")
+
 
 trap('INT') do
   puts "Stopping server"
@@ -55,7 +55,6 @@ trap('INT') do
 end
 
 
-#server.wsdl("moviesCollection.wsdl")
 server.start
 
 

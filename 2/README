@@ -1,10 +1,12 @@
 Task 2 - web service and client for it
     written in ruby(soap4r), 
-    using YAML to store data, 
-    using gtk2 for client front end
+    using YAML to store data 
 
 web service - personal movies collection
     operations:
         getMovies
         rateMovie
         addMovie
+        deleteMovie
+        addFavortie
+        getFavorites

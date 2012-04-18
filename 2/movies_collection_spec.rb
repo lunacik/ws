@@ -24,7 +24,7 @@ describe MoviesCollection do
     context "with yaml file parameter" do
       it "should have 1 movie" do
         @movies_collection.should have(1).movies
-        #File.delete(@temp_file)
+        File.delete(@temp_file)
       end
     end
   end

@@ -1,244 +1,151 @@
-<?xml version="1.0"?>
-<definitions xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" 
-xmlns:tns="MoviesCollectionWS-NS"
-xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" 
-xmlns:si="http://soapinterop.org/xsd" 
-xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
-xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
-xmlns="http://schemas.xmlsoap.org/wsdl/" 
-targetNamespace="MoviesCollectionWS-NS">
-
-
-   <types>
-      <schema xmlns="http://www.w3.org/2001/XMLSchema"
-         targetNamespace="MoviesCollectionWS-NS"
-         xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-         xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">
-         <complexType name="ArrayOfString">
-            <complexContent>
-               <restriction base="soapenc:Array">
-                  <attribute ref="soapenc:arrayType" 
-                  wsdl:arrayType="string[]"/>
-               </restriction>
-            </complexContent>
-         </complexType>
-       </schema>
-   </types>
-
-<message name="wsdlRequest">
-</message>
-
-<message name="wsdlResponse">
-  <part name="result" type="xsd:string">
-    <documentation>WSDL description</documentation>
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns:tns="MoviesCollectionWS-NS" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="MoviesCollectionWS-NS">
+  <types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="MoviesCollectionWS-NS">
+      <complexType name="ArrayOfString">
+        <complexContent>
+          <restriction base="soapenc:Array">
+            <attribute ref="soapenc:arrayType" wsdl:arrayType="string[]"/>
+          </restriction>
+        </complexContent>
+      </complexType>
+    </schema>
+  </types>
+  <message name="getMoviesRequest">
+  </message>
+  <message name="getMoviesResponse">
+    <part name="result" type="xsd:string">
   </part>
-</message>
-
-<message name="documentationRequest">
-</message>
-
-<message name="documentationResponse">
-  <part name="result" type="xsd:string">
-    <documentation>HTML table with documentation</documentation>
+  </message>
+  <message name="addMovieRequest">
+    <part name="name" type="xsd:string">
   </part>
-</message>
-
-<message name="getMoviesRequest">
-</message>
-
-<message name="getMoviesResponse">
-  <part name="result" type="xsd:string">
+    <part name="year" type="xsd:integer">
   </part>
-</message>
-
-<message name="addMovieRequest">
-  <part name="name" type="xsd:string">
+  </message>
+  <message name="addMovieResponse">
+    <part name="result" type="xsd:string">
   </part>
-  <part name="year" type="xsd:integer">
+  </message>
+  <message name="rateMovieRequest">
+    <part name="movieID" type="xsd:integer">
   </part>
-</message>
-
-<message name="addMovieResponse">
-  <part name="result" type="xsd:string">
+    <part name="rating" type="xsd:integer">
   </part>
-</message>
-
-<message name="rateMovieRequest">
-  <part name="movieID" type="xsd:integer">
+  </message>
+  <message name="rateMovieResponse">
+    <part name="result" type="xsd:string">
   </part>
-  <part name="rating" type="xsd:integer">
+  </message>
+  <message name="deleteMovieRequest">
+    <part name="movieID" type="xsd:integer">
   </part>
-</message>
-
-<message name="rateMovieResponse">
-  <part name="result" type="xsd:string">
+  </message>
+  <message name="deleteMovieResponse">
+    <part name="result" type="xsd:string">
   </part>
-</message>
-
-<message name="deleteMovieRequest">
-  <part name="movieID" type="xsd:integer">
+  </message>
+  <message name="addFavoriteRequest">
+    <part name="movieID" type="xsd:integer">
   </part>
-</message>
-
-<message name="deleteMovieResponse">
-  <part name="result" type="xsd:string">
+  </message>
+  <message name="addFavoriteResponse">
+    <part name="result" type="xsd:string">
   </part>
+  </message>
+  <message name="getFavoritesRequest">
 </message>
-
-<message name="addFavoriteRequest">
-  <part name="movieID" type="xsd:integer">
+  <message name="getFavoritesResponse">
+    <part name="result" type="xsd:string">
   </part>
-</message>
-
-<message name="addFavoriteResponse">
-  <part name="result" type="xsd:string">
-  </part>
-</message>
-
-<message name="getFavoritesRequest">
-</message>
-
-<message name="getFavoritesResponse">
-  <part name="result" type="xsd:string">
-  </part>
-</message>
-
-<portType name="MoviesCollectionWS">
-<operation name="wsdl">
-  <documentation>Return the WSDL describing the web server</documentation>
-  <input message="tns:wsdlRequest"/>
-  <output message="tns:wsdlResponse"/>
-</operation>
-
-<operation name="documentation">
-  <documentation>Return HMLT table with documentation for the web service</documentation>
-  <input message="tns:documentationRequest"/>
-  <output message="tns:documentationResponse"/>
-</operation>
-
-<operation name="getMovies">
-  <input message="tns:getMoviesRequest"/>
-  <output message="tns:getMoviesResponse"/>
-</operation>
-
-<operation name="addMovie">
-  <input message="tns:addMovieRequest"/>
-  <output message="tns:addMovieResponse"/>
-</operation>
-
-<operation name="rateMovie">
-  <input message="tns:rateMovieRequest"/>
-  <output message="tns:rateMovieResponse"/>
-</operation>
-
-<operation name="deleteMovie">
-  <input message="tns:deleteMovieRequest"/>
-  <output message="tns:deleteMovieResponse"/>
-</operation>
-
-<operation name="addFavorite">
-  <input message="tns:addFavoriteRequest"/>
-  <output message="tns:addFavoriteResponse"/>
-</operation>
-
-<operation name="getFavorites">
-  <input message="tns:getFavoritesRequest"/>
-  <output message="tns:getFavoritesResponse"/>
-</operation>
-
-</portType>
-
-<binding name="MoviesCollectionWSBinding" type="tns:MoviesCollectionWS">
-   <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
-<operation name="wsdl">
-  <soap:operation soapAction="urn:MoviesCollectionWS#wsdl" style="rpc"/>
-  <input>
-    <soap:body namespace="urn:MoviesCollectionWS" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded"/>
-  </input>
-  <output>
-    <soap:body namespace="urn:MoviesCollectionWS" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded"/>
-  </output>
-</operation>
-
-<operation name="documentation">
-  <soap:operation soapAction="urn:MoviesCollectionWS#documentation" style="rpc"/>
-  <input>
-    <soap:body namespace="urn:MoviesCollectionWS" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded"/>
-  </input>
-  <output>
-    <soap:body namespace="urn:MoviesCollectionWS" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded"/>
-  </output>
-</operation>
-
-<operation name="getMovies">
-  <soap:operation soapAction="urn:MoviesCollectionWS#getMovies" style="rpc"/>
-  <input>
-    <soap:body namespace="urn:MoviesCollectionWS" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded"/>
-  </input>
-  <output>
-    <soap:body namespace="urn:MoviesCollectionWS" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded"/>
-  </output>
-</operation>
-
-<operation name="addMovie">
-  <soap:operation soapAction="urn:MoviesCollectionWS#addMovie" style="rpc"/>
-  <input>
-    <soap:body namespace="urn:MoviesCollectionWS" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded"/>
-  </input>
-  <output>
-    <soap:body namespace="urn:MoviesCollectionWS" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded"/>
-  </output>
-</operation>
-
-<operation name="rateMovie">
-  <soap:operation soapAction="urn:MoviesCollectionWS#rateMovie" style="rpc"/>
-  <input>
-    <soap:body namespace="urn:MoviesCollectionWS" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded"/>
-  </input>
-  <output>
-    <soap:body namespace="urn:MoviesCollectionWS" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded"/>
-  </output>
-</operation>
-
-<operation name="deleteMovie">
-  <soap:operation soapAction="urn:MoviesCollectionWS#deleteMovie" style="rpc"/>
-  <input>
-    <soap:body namespace="urn:MoviesCollectionWS" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded"/>
-  </input>
-  <output>
-    <soap:body namespace="urn:MoviesCollectionWS" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded"/>
-  </output>
-</operation>
-
-<operation name="addFavorite">
-  <soap:operation soapAction="urn:MoviesCollectionWS#addFavorite" style="rpc"/>
-  <input>
-    <soap:body namespace="urn:MoviesCollectionWS" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded"/>
-  </input>
-  <output>
-    <soap:body namespace="urn:MoviesCollectionWS" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded"/>
-  </output>
-</operation>
-
-<operation name="getFavorites">
-  <soap:operation soapAction="urn:MoviesCollectionWS#getFavorites" style="rpc"/>
-  <input>
-    <soap:body namespace="urn:MoviesCollectionWS" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded"/>
-  </input>
-  <output>
-    <soap:body namespace="urn:MoviesCollectionWS" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded"/>
-  </output>
-</operation>
-
-</binding>
-<service name="MoviesCollectionWS">
-    <documentation></documentation>
- 
+  </message>
+  <portType name="MoviesCollectionWS">
+    <operation name="getMovies">
+      <input message="tns:getMoviesRequest"/>
+      <output message="tns:getMoviesResponse"/>
+    </operation>
+    <operation name="addMovie">
+      <input message="tns:addMovieRequest"/>
+      <output message="tns:addMovieResponse"/>
+    </operation>
+    <operation name="rateMovie">
+      <input message="tns:rateMovieRequest"/>
+      <output message="tns:rateMovieResponse"/>
+    </operation>
+    <operation name="deleteMovie">
+      <input message="tns:deleteMovieRequest"/>
+      <output message="tns:deleteMovieResponse"/>
+    </operation>
+    <operation name="addFavorite">
+      <input message="tns:addFavoriteRequest"/>
+      <output message="tns:addFavoriteResponse"/>
+    </operation>
+    <operation name="getFavorites">
+      <input message="tns:getFavoritesRequest"/>
+      <output message="tns:getFavoritesResponse"/>
+    </operation>
+  </portType>
+  <binding name="MoviesCollectionWSBinding" type="tns:MoviesCollectionWS">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getMovies">
+      <soap:operation soapAction="urn:MoviesCollectionWS#getMovies" style="rpc"/>
+      <input>
+        <soap:body namespace="urn:MoviesCollectionWS"/>
+      </input>
+      <output>
+          <soap:body namespace="urn:MoviesCollectionWS" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded"/>
+      </output>
+    </operation>
+    <operation name="addMovie">
+      <soap:operation soapAction="urn:MoviesCollectionWS#addMovie" style="rpc"/>
+      <input>
+          <soap:body namespace="urn:MoviesCollectionWS" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:MoviesCollectionWS"/>
+      </output>
+    </operation>
+    <operation name="rateMovie">
+      <soap:operation soapAction="urn:MoviesCollectionWS#rateMovie" style="rpc"/>
+      <input>
+          <soap:body namespace="urn:MoviesCollectionWS" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:MoviesCollectionWS"/>
+      </output>
+    </operation>
+    <operation name="deleteMovie">
+      <soap:operation soapAction="urn:MoviesCollectionWS#deleteMovie" style="rpc"/>
+      <input>
+          <soap:body namespace="urn:MoviesCollectionWS" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:MoviesCollectionWS"/>
+      </output>
+    </operation>
+    <operation name="addFavorite">
+      <soap:operation soapAction="urn:MoviesCollectionWS#addFavorite" style="rpc"/>
+      <input>
+          <soap:body namespace="urn:MoviesCollectionWS" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:MoviesCollectionWS"/>
+      </output>
+    </operation>
+    <operation name="getFavorites">
+      <soap:operation soapAction="urn:MoviesCollectionWS#getFavorites" style="rpc"/>
+      <input>
+        <soap:body namespace="urn:MoviesCollectionWS"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:MoviesCollectionWS" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="MoviesCollectionWS">
+    <documentation/>
     <port name="MoviesCollectionWS" binding="tns:MoviesCollectionWSBinding">
-       <soap:address location="http://localhost:27015"/>
+      <soap:address location="http://localhost:27015"/>
     </port>
-</service>
-
+  </service>
 </definitions>
