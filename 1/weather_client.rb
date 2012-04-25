@@ -15,18 +15,14 @@ class WeatherClient
         return xml if xml == "Data Not Found"
         xml["utf-16"] = "utf-8" 
         xmldoc = REXML::Document.new(xml)
-        weatherInfo = ""
-        xmldoc.elements.each("CurrentWeather/*") {|e| weatherInfo += e.name + " " + e.text + "\n"}
-        weatherInfo
+        xmldoc.elements.collect("CurrentWeather/*") {|e| e.name + " " + e.text + "\n"}.join
     end
 
     def getCities countryName
         response = @client.request :get_cities_by_country, body: {"CountryName" => countryName}
         xml = response.to_hash[:get_cities_by_country_response][:get_cities_by_country_result]
         xmldoc = REXML::Document.new(xml.to_s)
-        cities = []     
-        xmldoc.elements.each("NewDataSet/Table/City") {|city| cities.push city.text} 
-        cities
+        xmldoc.elements.collect("NewDataSet/Table/City") {|city| city.text} 
     end
 end
 

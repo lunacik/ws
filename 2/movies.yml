@@ -18,7 +18,8 @@
     year: 2011
     ratings:
     - 5
-    rating: 5.0
+    - 10
+    rating: 7.5
   5: !ruby/object:Movie
     name: Tree of Life
     year: 2011
@@ -27,6 +28,23 @@
   1: !ruby/object:Movie
     name: Rūpužė
     year: 1950
+    ratings:
+    - 10
+    rating: 10.0
+  6: !ruby/object:Movie
+    name: '12'
+    year: 2009
+    ratings: []
+    rating: n/a
+  7: !ruby/object:Movie
+    name: Naujas
+    year: 2012
+    ratings:
+    - 9
+    rating: 9.0
+  8: !ruby/object:Movie
+    name: New movie
+    year: 2011
     ratings: []
     rating: n/a
 :fav:

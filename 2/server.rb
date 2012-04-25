@@ -10,8 +10,8 @@ class MoviesCollectionWS < SimpleWS
     @movies_collection = MoviesCollection.new(file)
   end
 
-  def save(*args)
-    @movies_collection.save(*args)
+  def save
+    @movies_collection.save
   end
 
   serve :getMovies do
@@ -45,7 +45,9 @@ class MoviesCollectionWS < SimpleWS
 end
 
 
-server = MoviesCollectionWS.new("MoviesCollectionWS", "", "localhost", "27015", "movies.yml")
+server = MoviesCollectionWS.new(
+    "MoviesCollection", "urs:MoviesCollection", "localhost", "27015", "movies.yml"
+)
 
 
 trap('INT') do
