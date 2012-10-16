@@ -56,8 +56,24 @@ trap('INT') do
   server.save
 end
 
+require 'soap/header/simplehandler'
+class WsseAuthHeader < SOAP::Header::SimpleHandler
+  NAMESPACE = 'http://schemas.xmlsoap.org/ws/2002/07/secext'
+  USERNAME  = 'username'
+  PASSWORD  = 'password'
 
-server.start
+  def initialize()
+    super(XSD::QName.new(NAMESPACE, 'Security'))
+  end
 
+  def on_simple_outbound
+    {"UsernameToken" => {"Username" => USERNAME, "Password" => PASSWORD}}
+  end
+end
+
+
+if $0 == __FILE__
+  server.start
+end
 
 

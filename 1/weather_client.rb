@@ -2,6 +2,7 @@
 require 'savon'
 require 'rexml/document'
 
+
 class WeatherClient
     def initialize
         #@client = Savon::Client.new "http://localhost:8888/globalweather.asmx?WSDL"

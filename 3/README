@@ -1,3 +1,8 @@
-task 3 - authentication or secured connection
-continuing personal movies collection project
-adding ability to login, and sign up
+Task 3 - secured webservices
+
+rewriting Personal Movies Collection from ruby to java
+using axis2 to produce webservices, 
+probably rampart module for authentication,
+sqlite3 for storing data
+
+probably ruby client(savon), with simple ui
